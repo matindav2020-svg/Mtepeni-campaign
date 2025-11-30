@@ -9,8 +9,12 @@
     header h1 { margin: 0; color: #1a3a5a; }
     header h2 { margin-top: 0.25rem; color: #2c5870; font-weight: 600; }
     main p { line-height: 1.5; }
-    footer { margin-top: 2rem; color: #666; font-size: 0.9rem; }
-    hr { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
+    .comment-form { margin-top: 2rem; padding: 1rem; border: 1px solid #eee; border-radius: 6px; background: #fafafa; }
+    .comment-form textarea { width: 100%; min-height: 110px; padding: 0.5rem; }
+    .comment-form input[type="text"], .comment-form input[type="email"] { width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; }
+    .comment-form button { padding: 0.5rem 1rem; background:#1a3a5a;color:#fff;border:none;border-radius:4px;cursor:pointer; }
+    .small { font-size: 0.9rem; color: #666; }
+    .hidden { display:none !important; }
   </style>
 </head>
 <body>
@@ -22,6 +26,30 @@
   <main>
     <p>I am a passionate and dedicated youth leader, willing to vie for the MCA position in Mtepeni ward.</p>
     <p>I humbly look forward to your support.</p>
+
+    <section class="comment-form" aria-labelledby="comment-heading">
+      <h3 id="comment-heading">Send an anonymous message</h3>
+      <p class="small">If you prefer, leave your name; otherwise leave it blank. Your message will be sent to me privately.</p>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" />
+        <input type="email" name="email" placeholder="Your email (optional, not required)" autocomplete="email" />
+
+        <textarea name="message" placeholder="Write your message..." required></textarea>
+
+        <div class="hidden" aria-hidden="true">
+          <label>Leave this field blank</label>
+          <input type="text" name="_gotcha" />
+        </div>
+
+        <input type="hidden" name="_subject" value="New anonymous message from website" />
+        <input type="hidden" name="_next" value="https://matindav2020-svg.github.io/Mtepeni-campaign/thank-you.html" />
+
+        <button type="submit">Send message</button>
+      </form>
+
+      <p class="small">Privacy note: This form will send your message to the site owner. Do not include sensitive personal information. If you leave name and email blank, the submission will be anonymous.</p>
+    </section>
   </main>
 
   <hr />
